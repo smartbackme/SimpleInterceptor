@@ -183,7 +183,7 @@ class SimpleInterceptor(context: Context) : Interceptor {
         ).toContentValues(transaction)
         val uri =
             context.contentResolver.insert(InterceptorContentProvider.TRANSACTION_URI!!, values)
-        transaction.id = java.lang.Long.valueOf(uri!!.lastPathSegment)
+        transaction.id = uri!!.lastPathSegment?.toLong()
         if (showNotification) {
             notificationHelper.show(transaction)
         }
