@@ -26,7 +26,13 @@ Simpleinceptor is the interception interface tool of Android okhttp client, whic
 Therefore, it can only be used in the debugging process and can not be published to the online
 
 to configure
-
+project : build.gradle
+```
+buildscript {
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+    }
+```
 Version associated with okhttp:
 
 If the app is integrated with okhttp3. + version, please choose version 3.0 code

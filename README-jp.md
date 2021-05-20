@@ -23,6 +23,13 @@ SimpleInterceptor はAndroid OkHttpクライアントのブロッキングイン
   これにより、デバッグプロセスにしか使えず、オンラインに投稿できない。
 
 設定
+project : build.gradle
+```
+buildscript {
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+    }
+```
 バージョンはokhttp関連：
 
 appが統合されているのがokhttp 3.+バージョンの場合は3.0バージョンのコードを選択してください。

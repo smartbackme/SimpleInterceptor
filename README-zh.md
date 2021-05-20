@@ -22,6 +22,13 @@ SimpleInterceptor 是Android OkHttp客户端的的拦截接口工具，为的是
 由此，其只能用于调试过程，不可发布到线上
 
 配置
+project : build.gradle
+```
+buildscript {
+    repositories {
+        maven { url 'https://www.jitpack.io' }
+    }
+```
 版本于okhttp关联：
 如果app 集成的是okhttp3 3.+版本那么请选用 3.0版本代码
 如果app 集成的是okhttp3 4.+版本那么请选用 4.0版本代码
