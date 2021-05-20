@@ -1,0 +1,2 @@
+-keep class com.kangaroo.simpleinterceptor.internal.data.HttpTransaction { *; }
+-keep class androidx.appcompat.widget.SearchView { *; }

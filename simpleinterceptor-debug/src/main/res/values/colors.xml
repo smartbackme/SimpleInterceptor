@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="interceptor_colorPrimary">#2196F3</color>
+    <color name="interceptor_colorPrimaryDark">#2196F3</color>
+    <color name="interceptor_colorAccent">#FFEB3B</color>
+
+    <color name="interceptor_status_default">#212121</color>
+    <color name="interceptor_status_requested">#9E9E9E</color>
+    <color name="interceptor_status_error">#F44336</color>
+    <color name="interceptor_status_500">#B71C1C</color>
+    <color name="interceptor_status_400">#FF9800</color>
+    <color name="interceptor_status_300">#0D47A1</color>
+</resources>

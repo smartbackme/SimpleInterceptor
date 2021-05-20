@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="interceptor_name">简单拦截</string>
+    <string name="interceptor_notification_title">记录HTTP活动</string>
+    <string name="interceptor_clear">清除</string>
+    <string name="interceptor_browse_sql_database">浏览SQLite数据库</string>
+    <string name="interceptor_overview">概述</string>
+    <string name="interceptor_request">请求</string>
+    <string name="interceptor_response">响应</string>
+    <string name="interceptor_url">URL</string>
+    <string name="interceptor_method">方法</string>
+    <string name="interceptor_protocol">协议</string>
+    <string name="interceptor_status">状态</string>
+    <string name="interceptor_ssl">SSL</string>
+    <string name="interceptor_request_time">请求时间</string>
+    <string name="interceptor_response_time">响应时间</string>
+    <string name="interceptor_duration">持续时间</string>
+    <string name="interceptor_request_size">请求大小</string>
+    <string name="interceptor_response_size">响应大小</string>
+    <string name="interceptor_total_size">总大小</string>
+    <string name="interceptor_yes">是</string>
+    <string name="interceptor_no">否</string>
+    <string name="interceptor_share">分享</string>
+    <string name="interceptor_share_as_text">共享为文本</string>
+    <string name="interceptor_share_as_curl">共享为curl命令</string>
+    <string name="interceptor_body_omitted">（省略编码或二进制体）</string>
+    <string name="interceptor_search">Search</string>
+    <string name="interceptor_body_unexpected_eof">\n\n--- 内容的意外结尾 ---</string>
+    <string name="interceptor_body_content_truncated">\n\n--- 内容截断 ---</string>
+    <string name="notification_category">SimpleInterceptor HTTP 通知</string>
+</resources>

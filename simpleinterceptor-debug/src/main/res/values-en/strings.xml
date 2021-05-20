@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="interceptor_name">SimpleInterceptor</string>
+    <string name="interceptor_notification_title">Recording HTTP activity</string>
+    <string name="interceptor_clear">Clear</string>
+    <string name="interceptor_browse_sql_database">Browse SQLite database</string>
+    <string name="interceptor_overview">Overview</string>
+    <string name="interceptor_request">Request</string>
+    <string name="interceptor_response">Response</string>
+    <string name="interceptor_url">URL</string>
+    <string name="interceptor_method">Method</string>
+    <string name="interceptor_protocol">Protocol</string>
+    <string name="interceptor_status">Status</string>
+    <string name="interceptor_ssl">SSL</string>
+    <string name="interceptor_request_time">Request time</string>
+    <string name="interceptor_response_time">Response time</string>
+    <string name="interceptor_duration">Duration</string>
+    <string name="interceptor_request_size">Request size</string>
+    <string name="interceptor_response_size">Response size</string>
+    <string name="interceptor_total_size">Total size</string>
+    <string name="interceptor_yes">Yes</string>
+    <string name="interceptor_no">No</string>
+    <string name="interceptor_share">Share</string>
+    <string name="interceptor_share_as_text">Share as text</string>
+    <string name="interceptor_share_as_curl">Share as curl command</string>
+    <string name="interceptor_body_omitted">(encoded or binary body omitted)</string>
+    <string name="interceptor_search">Search</string>
+    <string name="interceptor_body_unexpected_eof">\n\n--- Unexpected end of content ---</string>
+    <string name="interceptor_body_content_truncated">\n\n--- Content truncated ---</string>
+    <string name="notification_category">SimpleInterceptor HTTP notifications</string>
+</resources>

@@ -1,0 +1,4 @@
+include ':simpleinterceptor-debug'
+include ':simpleinterceptor-release'
+include ':app'
+rootProject.name = "SimpleInterceptor"

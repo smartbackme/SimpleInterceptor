@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kangaroo.simpleinterceptor">
+    <application>
+        <provider
+            android:name=".internal.components.providers.InterceptorContentProvider"
+            android:authorities="${applicationId}.interceptor.provider"
+            android:exported="false" />
+        <activity
+            android:name=".internal.ui.MainActivity"
+            android:label="@string/interceptor_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.kangaroo.simpleinterceptor.task"
+            android:theme="@style/Interceptor.Theme" />
+        <activity android:name=".internal.ui.TransactionActivity"
+            android:theme="@style/Interceptor.Theme"
+            android:parentActivityName=".internal.ui.MainActivity"/>
+        <service
+            android:name=".internal.components.services.ClearTransactionsService"
+            android:exported="false" />
+    </application>
+</manifest>

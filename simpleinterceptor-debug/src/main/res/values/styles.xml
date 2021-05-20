@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Interceptor.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/interceptor_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/interceptor_colorPrimaryDark</item>
+        <item name="colorAccent">@color/interceptor_colorAccent</item>
+    </style>
+
+    <style name="Interceptor.TextAppearance.ListItem" parent="android:TextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Interceptor.TextAppearance.Label" parent="android:TextAppearance.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Interceptor.TextAppearance.Value" parent="android:TextAppearance.Small">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="Interceptor.TextAppearance.TransactionTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:gravity">top</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+</resources>
