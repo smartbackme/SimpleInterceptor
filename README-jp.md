@@ -2,9 +2,8 @@
 
 SimpleInterceptor はAndroid OkHttpクライアントのブロッキングインターフェースツールであり、テストや開発を容易にし、問題を迅速に検索するためです。
 
-![SimpleInterceptor]（assets/SimpleInterceptor.gif）
-
-![SimpleInterceptor]（assets/SimpleInterceptorPage.gif）
+![SimpleInterceptor](assets/SimpleInterceptor.gif)
+![SimpleInterceptor](assets/SimpleInterceptorPage.gif)
 
 ## 要求
 1. Android 4.1+

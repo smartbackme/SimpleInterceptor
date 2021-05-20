@@ -2,9 +2,8 @@
 
 SimpleInterceptor 是Android OkHttp客户端的的拦截接口工具，为的是方便测试或开发，快速查找问题。
 
-![SimpleInterceptor]（assets/SimpleInterceptor.gif）
-
-![SimpleInterceptor]（assets/SimpleInterceptorPage.gif）
+![SimpleInterceptor](assets/SimpleInterceptor.gif)
+![SimpleInterceptor](assets/SimpleInterceptorPage.gif)
 
 ## 环境要求
 1. Android 4.1+

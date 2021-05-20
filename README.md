@@ -2,9 +2,8 @@
 
 Simpleinceptor is the interception interface tool of Android okhttp client, which is convenient for testing or development and quick problem finding.
 
-![ SimpleInterceptor]（assets/SimpleInterceptor.gif）
-
-![ SimpleInterceptor]（assets/SimpleInterceptorPage.gif）
+![SimpleInterceptor](assets/SimpleInterceptor.gif)
+![SimpleInterceptor](assets/SimpleInterceptorPage.gif)
 
 ## Environmental requirements
 
