@@ -1,3 +1,9 @@
+![](https://img.shields.io/badge/JitPack-4.0-green)
+![](https://img.shields.io/badge/JitPack-3.0-green)
+![](https://img.shields.io/badge/code-kotlin-red)
+![](https://img.shields.io/badge/Android%20Arsenal-SimpleInterceptor-yellow)
+![](https://img.shields.io/badge/author-smartbackme-blue)
+
 # SimpleInterceptor
 
 SimpleInterceptor 是Android OkHttp客户端的的拦截接口工具，为的是方便测试或开发，快速查找问题。

@@ -1,3 +1,9 @@
+![](https://img.shields.io/badge/JitPack-4.0-green)
+![](https://img.shields.io/badge/JitPack-3.0-green)
+![](https://img.shields.io/badge/code-kotlin-red)
+![](https://img.shields.io/badge/Android%20Arsenal-SimpleInterceptor-yellow)
+![](https://img.shields.io/badge/author-smartbackme-blue)
+
 # SimpleInterceptor
 
 SimpleInterceptor はAndroid OkHttpクライアントのブロッキングインターフェースツールであり、テストや開発を容易にし、問題を迅速に検索するためです。
