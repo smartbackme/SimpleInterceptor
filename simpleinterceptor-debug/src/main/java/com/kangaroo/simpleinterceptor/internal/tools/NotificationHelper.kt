@@ -114,7 +114,7 @@ internal class NotificationHelper(private val context: Context) {
             if (transaction.status == HttpTransaction.Status.Requested) {
                 transactionCount++
             }
-            transactionBuffer.put(transaction.id, transaction)
+            transactionBuffer.put(transaction.id!!, transaction)
             if (transactionBuffer.size() > BUFFER_SIZE) {
                 transactionBuffer.removeAt(0)
             }

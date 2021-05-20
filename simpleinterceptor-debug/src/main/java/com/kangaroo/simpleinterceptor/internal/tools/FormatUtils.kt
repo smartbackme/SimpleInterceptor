@@ -151,7 +151,7 @@ internal object FormatUtils {
 
 """
         )
-        var headers = formatHeaders(transaction.requestHeaders, false)
+        var headers = formatHeaders(transaction.getRequestHeaders(), false)
         if (!TextUtils.isEmpty(headers)) {
             text.append(
                 """
@@ -171,7 +171,7 @@ internal object FormatUtils {
 
 """
         )
-        headers = formatHeaders(transaction.responseHeaders, false)
+        headers = formatHeaders(transaction.getResponseHeaders(), false)
         if (!TextUtils.isEmpty(headers)) {
             text.append(
                 """
@@ -192,7 +192,7 @@ internal object FormatUtils {
         var compressed = false
         var curlCmd = "curl"
         curlCmd += " -X " + transaction.method
-        val headers = transaction.requestHeaders
+        val headers = transaction.getRequestHeaders()
         var i = 0
         val count = headers.size
         while (i < count) {

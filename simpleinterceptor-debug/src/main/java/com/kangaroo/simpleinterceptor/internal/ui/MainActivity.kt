@@ -22,7 +22,7 @@ internal class MainActivity : BaseInterceptorActivity(), OnListFragmentInteracti
     }
 
     override fun onListFragmentInteraction(transaction: HttpTransaction) {
-        TransactionActivity.start(this, transaction.id)
+        TransactionActivity.start(this, transaction.id!!)
     }
 
     private val applicationName: String

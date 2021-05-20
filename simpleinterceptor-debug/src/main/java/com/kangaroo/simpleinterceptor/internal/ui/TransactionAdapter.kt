@@ -95,13 +95,13 @@ internal class TransactionAdapter(
                     transaction.status == HttpTransaction.Status.Requested -> {
                         colorRequested
                     }
-                    transaction.responseCode >= 500 -> {
+                    transaction.responseCode!! >= 500 -> {
                         color500
                     }
-                    transaction.responseCode >= 400 -> {
+                    transaction.responseCode!! >= 400 -> {
                         color400
                     }
-                    transaction.responseCode >= 300 -> {
+                    transaction.responseCode!! >= 300 -> {
                         color300
                     }
                     else -> {
