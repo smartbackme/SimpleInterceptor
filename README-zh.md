@@ -7,7 +7,7 @@ SimpleInterceptor 是Android OkHttp客户端的的拦截接口工具，为的是
 
 ## 环境要求
 1. Android 4.1+
-2. OkHttp 3.x。
+2. OkHttp 3.x or 4.x
 3. androidx
 
 **警告**：
@@ -16,13 +16,24 @@ SimpleInterceptor 是Android OkHttp客户端的的拦截接口工具，为的是
 由此，其只能用于调试过程，不可发布到线上
 
 配置
+版本于okhttp关联：
+如果app 集成的是okhttp3 3.+版本那么请选用 3.0版本代码
+如果app 集成的是okhttp3 4.+版本那么请选用 4.0版本代码
 
 ```
-
+okhttp3 3.+
 dependencies {
 
     debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:3.0'
     releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:3.0'
+}
+or
+
+okhttp3 4.+
+dependencies {
+
+    debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:4.0'
+    releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:4.0'
 }
 ```
 

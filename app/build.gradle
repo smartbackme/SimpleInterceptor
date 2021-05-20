@@ -44,7 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     debugImplementation project(':simpleinterceptor-debug')
     releaseImplementation project(':simpleinterceptor-release')
-
+//    releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:3.0'
+//    debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:3.0'
 
     implementation "com.squareup.retrofit2:retrofit:2.2.0"
     implementation "com.squareup.retrofit2:converter-gson:2.2.0"

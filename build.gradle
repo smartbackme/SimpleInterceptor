@@ -46,5 +46,5 @@ ext {
     targetSdkVersion = 30
     compileSdkVersion = 30
     buildToolsVersion = '30.0.2'
-    okhttp3Version = '3.6.0'
+    okhttp3Version = '4.9.0'
 }

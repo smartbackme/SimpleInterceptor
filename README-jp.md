@@ -7,7 +7,7 @@ SimpleInterceptor はAndroid OkHttpクライアントのブロッキングイン
 
 ## 要求
 1. Android 4.1+
-2. OkHttp 3.x。
+2. OkHttp 3.x or 4.x
 3. androidx
 
 **警告**：
@@ -17,15 +17,28 @@ SimpleInterceptor はAndroid OkHttpクライアントのブロッキングイン
   これにより、デバッグプロセスにしか使えず、オンラインに投稿できない。
 
 設定
+バージョンはokhttp関連：
 
+appが統合されているのがokhttp 3.+バージョンの場合は3.0バージョンのコードを選択してください。
+
+appが統合されているのがokhttp 3.+バージョンの場合は4.0バージョンのコードを選択してください。
 ```
 
+okhttp3 3.+
 dependencies {
 
     debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:3.0'
     releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:3.0'
-
 }
+or
+
+okhttp3 4.+
+dependencies {
+
+    debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:4.0'
+    releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:4.0'
+}
+
 ```
 
 使用：

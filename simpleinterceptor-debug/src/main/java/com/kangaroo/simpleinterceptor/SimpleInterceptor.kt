@@ -11,11 +11,8 @@ import com.kangaroo.simpleinterceptor.internal.tools.RetentionManager
 import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Response
-import okhttp3.internal.http.HttpHeaders
-import okio.Buffer
-import okio.BufferedSource
-import okio.GzipSource
-import okio.Okio
+import okhttp3.internal.http.promisesBody
+import okio.*
 import java.io.EOFException
 import java.io.IOException
 import java.nio.charset.Charset
@@ -93,13 +90,13 @@ class SimpleInterceptor(context: Context) : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request()
-        val requestBody = request.body()
+        val requestBody = request.body
         val hasRequestBody = requestBody != null
         val transaction = HttpTransaction()
         transaction.requestDate = Date()
-        transaction.method = request.method()
-        transaction.url = request.url().toString()
-        transaction.setRequestHeaders(request.headers())
+        transaction.method = request.method
+        transaction.url = request.url.toString()
+        transaction.setRequestHeaders(request.headers)
         if (hasRequestBody) {
             if (requestBody!!.contentType() != null) {
                 transaction.requestContentType = requestBody.contentType().toString()
@@ -108,10 +105,10 @@ class SimpleInterceptor(context: Context) : Interceptor {
                 transaction.requestContentLength = requestBody.contentLength()
             }
         }
-        transaction.setRequestBodyIsPlainText(!bodyHasUnsupportedEncoding(request.headers()))
+        transaction.setRequestBodyIsPlainText(!bodyHasUnsupportedEncoding(request.headers))
         if (hasRequestBody && transaction.requestBodyIsPlainText()) {
-            val source = getNativeSource(Buffer(), bodyGzipped(request.headers()))
-            val buffer = source.buffer()
+            val source = getNativeSource(Buffer(), bodyGzipped(request.headers))
+            val buffer = source.buffer
             requestBody!!.writeTo(buffer)
             var charset = UTF8
             val contentType = requestBody.contentType()
@@ -135,27 +132,27 @@ class SimpleInterceptor(context: Context) : Interceptor {
             throw e
         }
         val tookMs = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNs)
-        val responseBody = response.body()
+        val responseBody = response.body
         transaction.setRequestHeaders(
-            response.request().headers()
+            response.request.headers
         ) // includes headers added later in the chain
         transaction.responseDate = Date()
         transaction.tookMs = tookMs
-        transaction.protocol = response.protocol().toString()
-        transaction.responseCode = response.code()
-        transaction.responseMessage = response.message()
-        transaction.responseContentLength = responseBody.contentLength()
-        if (responseBody.contentType() != null) {
+        transaction.protocol = response.protocol.toString()
+        transaction.responseCode = response.code
+        transaction.responseMessage = response.message
+        transaction.responseContentLength = responseBody?.contentLength()
+        if (responseBody?.contentType() != null) {
             transaction.responseContentType = responseBody.contentType().toString()
         }
-        transaction.setResponseHeaders(response.headers())
-        transaction.setResponseBodyIsPlainText(!bodyHasUnsupportedEncoding(response.headers()))
-        if (HttpHeaders.hasBody(response) && transaction.responseBodyIsPlainText()) {
+        transaction.setResponseHeaders(response.headers)
+        transaction.setResponseBodyIsPlainText(!bodyHasUnsupportedEncoding(response.headers))
+        if (response.promisesBody() && transaction.responseBodyIsPlainText()) {
             val source = getNativeSource(response)
-            source.request(Long.MAX_VALUE)
-            val buffer = source.buffer()
+            source?.request(Long.MAX_VALUE)
+            val buffer = source?.buffer
             var charset = UTF8
-            val contentType = responseBody.contentType()
+            val contentType = responseBody?.contentType()
             if (contentType != null) {
                 charset = try {
                     contentType.charset(UTF8)
@@ -164,12 +161,12 @@ class SimpleInterceptor(context: Context) : Interceptor {
                     return response
                 }
             }
-            if (isPlaintext(buffer)) {
+            if (buffer!=null && isPlaintext(buffer)) {
                 transaction.responseBody = readFromBuffer(buffer.clone(), charset)
             } else {
                 transaction.setResponseBodyIsPlainText(false)
             }
-            transaction.responseContentLength = buffer.size()
+            transaction.responseContentLength = buffer?.size
         }
         update(transaction, transactionUri)
         return response
@@ -218,7 +215,7 @@ class SimpleInterceptor(context: Context) : Interceptor {
     private fun isPlaintext(buffer: Buffer): Boolean {
         return try {
             val prefix = Buffer()
-            val byteCount = if (buffer.size() < 64) buffer.size() else 64
+            val byteCount = if (buffer.size < 64) buffer.size else 64
             buffer.copyTo(prefix, 0, byteCount)
             for (i in 0..15) {
                 if (prefix.exhausted()) {
@@ -248,7 +245,7 @@ class SimpleInterceptor(context: Context) : Interceptor {
     }
 
     private fun readFromBuffer(buffer: Buffer, charset: Charset): String {
-        val bufferSize = buffer.size()
+        val bufferSize = buffer.size
         val maxBytes = Math.min(bufferSize, maxContentLength)
         var body = ""
         try {
@@ -265,23 +262,23 @@ class SimpleInterceptor(context: Context) : Interceptor {
     private fun getNativeSource(input: BufferedSource, isGzipped: Boolean): BufferedSource {
         return if (isGzipped) {
             val source = GzipSource(input)
-            Okio.buffer(source)
+            source.buffer()
         } else {
             input
         }
     }
 
     @Throws(IOException::class)
-    private fun getNativeSource(response: Response): BufferedSource {
-        if (bodyGzipped(response.headers())) {
+    private fun getNativeSource(response: Response): BufferedSource? {
+        if (bodyGzipped(response.headers)) {
             val source = response.peekBody(maxContentLength).source()
-            if (source.buffer().size() < maxContentLength) {
+            if (source.buffer.size< maxContentLength) {
                 return getNativeSource(source, true)
             } else {
                 Log.w(LOG_TAG, "gzip encoded response was too long")
             }
         }
-        return response.body().source()
+        return response.body?.source()
     }
 
     companion object {

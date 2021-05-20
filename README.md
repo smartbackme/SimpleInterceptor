@@ -9,7 +9,7 @@ Simpleinceptor is the interception interface tool of Android okhttp client, whic
 
 1. Android 4.1+
 
-2. OkHttp 3.x。
+2. OkHttp 3.x or 4.x
 
 3. androidx
 
@@ -21,13 +21,26 @@ Therefore, it can only be used in the debugging process and can not be published
 
 to configure
 
-```
+Version associated with okhttp:
 
+If the app is integrated with okhttp3. + version, please choose version 3.0 code
+
+If the app is integrated with okhttp3 4. + version, please choose version 4.0 code
+
+```
+okhttp3 3.+
 dependencies {
 
     debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:3.0'
     releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:3.0'
+}
+or
 
+okhttp3 4.+
+dependencies {
+
+    debugImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-debug:4.0'
+    releaseImplementation 'com.github.smartbackme.SimpleInterceptor:simpleinterceptor-release:4.0'
 }
 
 ```
