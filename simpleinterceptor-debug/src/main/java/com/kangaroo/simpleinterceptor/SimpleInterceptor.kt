@@ -10,6 +10,7 @@ import com.kangaroo.simpleinterceptor.internal.tools.NotificationHelper
 import com.kangaroo.simpleinterceptor.internal.tools.RetentionManager
 import okhttp3.Headers
 import okhttp3.Interceptor
+import okhttp3.MultipartBody
 import okhttp3.Response
 import okhttp3.internal.http.promisesBody
 import okio.*
@@ -107,18 +108,23 @@ class SimpleInterceptor(context: Context) : Interceptor {
         }
         transaction.setRequestBodyIsPlainText(!bodyHasUnsupportedEncoding(request.headers))
         if (hasRequestBody && transaction.requestBodyIsPlainText()) {
-            val source = getNativeSource(Buffer(), bodyGzipped(request.headers))
-            val buffer = source.buffer
-            requestBody!!.writeTo(buffer)
-            var charset = UTF8
-            val contentType = requestBody.contentType()
-            if (contentType != null) {
-                charset = contentType.charset(UTF8)
-            }
-            if (isPlaintext(buffer)) {
-                transaction.requestBody = readFromBuffer(buffer, charset)
-            } else {
-                transaction.setResponseBodyIsPlainText(false)
+
+            if(requestBody is MultipartBody){
+                transaction.requestBody = "MultipartBody"
+            }else{
+                val source = getNativeSource(Buffer(), bodyGzipped(request.headers))
+                val buffer = source.buffer
+                requestBody!!.writeTo(buffer)
+                var charset = UTF8
+                val contentType = requestBody.contentType()
+                if (contentType != null) {
+                    charset = contentType.charset(UTF8)
+                }
+                if (isPlaintext(buffer)) {
+                    transaction.requestBody = readFromBuffer(buffer, charset)
+                } else {
+                    transaction.setResponseBodyIsPlainText(false)
+                }
             }
         }
         val transactionUri = create(transaction)
